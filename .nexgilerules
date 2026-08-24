@@ -1,0 +1,32 @@
+# employee-training-demo — operating rules for Nexgile Code
+
+## What this project is
+Employee Training & Certification Demo System is a demo web application (Angular frontend + FastAPI backend + SQLite 3 via SQLAlchemy, single local deploy). An admin manages courses and learners; learners track progress, take multiple-choice assessments, and earn certificates. Auth is JWT bearer with a `role` claim (`ADMIN` | `LEARNER`). This is a demo: do not add enterprise-level complexity.
+
+## What you must read before starting any task
+
+| Task | Read |
+|---|---|
+| Adding/changing a DB table | `docs/wiki/data/<table>.md` + `docs/wiki/data/00-overview.md` |
+| Adding/changing an API endpoint | `docs/wiki/api/<resource>/<endpoint>.md` + `docs/wiki/auth/02-scopes.md` |
+| Adding/changing a UI route | `docs/wiki/ui/<route>.md` + the API endpoints it calls |
+| Adding a new env var | `docs/wiki/ops/env-vars.md` |
+| Adding a new third-party integration | `docs/wiki/integrations/00-overview.md` |
+| Starting / debugging the app | `docs/wiki/ops/runbooks/start-backend.md`, `docs/wiki/ops/runbooks/start-frontend.md` |
+
+## Hard rules
+1. Never edit a wiki page without updating the `Sources` line.
+2. Never add a TODO, TBD, or FIXME without a `[GAP-XX-NN]` tracking ID.
+3. Every PR description cites the wiki section(s) it implements.
+4. If code disagrees with the wiki, update the wiki in the same PR or write `docs/sources/decisions/<date>-<slug>.md` explaining why.
+5. `docs/sources/` is append-only. `docs/log.md` is append-only.
+6. Never let a page exceed 300 lines (200 for catalogs/glossary). Split first.
+7. Never use vague verbs ("handles", "manages") in wiki content.
+8. Every cross-reference uses `path:line` or `page.md#anchor`. No prose links.
+9. Passwords are stored as `pbkdf2_sha256$<salt>$<hash>` — see `docs/sources/decisions/2026-08-24-auth-transport.md`.
+
+## How to verify before claiming done
+Run all nine audits in §"The nine audits" of the workflow at `docs/sources/external/2026-08-24-spec-bootstrap.md`. There is no bundled `scripts/spec-audit.mjs` in this repo, so run the manual checks.
+
+## Phase tags
+Single phase demo — tag everything `[current]`.
