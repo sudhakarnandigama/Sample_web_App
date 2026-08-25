@@ -7,7 +7,7 @@ from fastapi.responses import JSONResponse
 from . import config
 from .database import Base, engine
 from .errors import ApiError
-from .routers import assignments, auth, courses, dashboard, learners
+from .routers import assessments, assignments, auth, courses, dashboard, learners
 
 
 @asynccontextmanager
@@ -40,3 +40,4 @@ app.include_router(dashboard.router, prefix="/api")
 app.include_router(courses.router, prefix="/api")
 app.include_router(learners.router, prefix="/api")
 app.include_router(assignments.router, prefix="/api")
+app.include_router(assessments.router, prefix="/api")
