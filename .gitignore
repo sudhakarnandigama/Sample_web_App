@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+*.db
+
+# Node / Angular
+node_modules/
+dist/
+.angular/
+*.log
+
+# IDE
+.vscode/
+.idea/
