@@ -12,7 +12,7 @@ import { AuthService } from '../../core/services/auth.service';
     <div class="login-box">
       <h1>Sign in</h1>
       <div class="error-banner" *ngIf="error">{{ error }}</div>
-      <form (ngSubmit)="submit()">
+      <form [formGroup]="form" (ngSubmit)="submit()">
         <div class="form-field">
           <label for="username">Username</label>
           <input id="username" type="text" [formControl]="form.controls.username" autocomplete="username" />

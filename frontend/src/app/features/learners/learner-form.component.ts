@@ -19,7 +19,7 @@ function emailFormat(control: AbstractControl) {
     <h1>{{ isEdit ? 'Edit Learner' : 'New Learner' }}</h1>
     <div class="card">
       <div class="error-banner" *ngIf="serverError">{{ serverError }}</div>
-      <form (ngSubmit)="submit()">
+      <form [formGroup]="form" (ngSubmit)="submit()">
         <div class="form-field">
           <label for="name">Name</label>
           <input id="name" type="text" [formControl]="form.controls.name" />
