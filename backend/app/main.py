@@ -7,7 +7,7 @@ from fastapi.responses import JSONResponse
 from . import config
 from .database import Base, engine
 from .errors import ApiError
-from .routers import auth, courses, dashboard
+from .routers import auth, courses, dashboard, learners
 
 
 @asynccontextmanager
@@ -38,3 +38,4 @@ async def api_error_handler(request: Request, exc: ApiError):
 app.include_router(auth.router, prefix="/api")
 app.include_router(dashboard.router, prefix="/api")
 app.include_router(courses.router, prefix="/api")
+app.include_router(learners.router, prefix="/api")
