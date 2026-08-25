@@ -8,6 +8,7 @@ import { CourseDetailsComponent } from './features/courses/course-details.compon
 import { CourseFormComponent } from './features/courses/course-form.component';
 import { LearnersComponent } from './features/learners/learners.component';
 import { LearnerFormComponent } from './features/learners/learner-form.component';
+import { AssignmentsComponent } from './features/assignments/assignments.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -19,6 +20,7 @@ export const routes: Routes = [
   { path: 'learners', component: LearnersComponent, canActivate: [authGuard, roleGuard(['ADMIN'])] },
   { path: 'learners/new', component: LearnerFormComponent, canActivate: [authGuard, roleGuard(['ADMIN'])] },
   { path: 'learners/:id/edit', component: LearnerFormComponent, canActivate: [authGuard, roleGuard(['ADMIN'])] },
+  { path: 'assignments', component: AssignmentsComponent, canActivate: [authGuard, roleGuard(['ADMIN'])] },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: '**', redirectTo: '/dashboard' },
 ];
