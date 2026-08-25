@@ -1,0 +1,9 @@
+"""Application error type rendered into the API error envelope."""
+
+
+class ApiError(Exception):
+    def __init__(self, code: str, message: str, status_code: int):
+        self.code = code
+        self.message = message
+        self.status_code = status_code
+        super().__init__(message)
