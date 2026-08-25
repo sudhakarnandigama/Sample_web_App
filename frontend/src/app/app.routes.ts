@@ -9,6 +9,8 @@ import { CourseFormComponent } from './features/courses/course-form.component';
 import { LearnersComponent } from './features/learners/learners.component';
 import { LearnerFormComponent } from './features/learners/learner-form.component';
 import { AssignmentsComponent } from './features/assignments/assignments.component';
+import { AssessmentComponent } from './features/assessments/assessment.component';
+import { AssessmentResultComponent } from './features/assessments/assessment-result.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -21,6 +23,8 @@ export const routes: Routes = [
   { path: 'learners/new', component: LearnerFormComponent, canActivate: [authGuard, roleGuard(['ADMIN'])] },
   { path: 'learners/:id/edit', component: LearnerFormComponent, canActivate: [authGuard, roleGuard(['ADMIN'])] },
   { path: 'assignments', component: AssignmentsComponent, canActivate: [authGuard, roleGuard(['ADMIN'])] },
+  { path: 'assessment/result', component: AssessmentResultComponent, canActivate: [authGuard] },
+  { path: 'assessment/:courseId', component: AssessmentComponent, canActivate: [authGuard] },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: '**', redirectTo: '/dashboard' },
 ];
