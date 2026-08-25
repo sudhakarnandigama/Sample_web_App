@@ -12,7 +12,7 @@ import { CourseService } from '../../core/services/course.service';
     <h1>{{ isEdit ? 'Edit Course' : 'New Course' }}</h1>
     <div class="card">
       <div class="error-banner" *ngIf="serverError">{{ serverError }}</div>
-      <form (ngSubmit)="submit()">
+      <form [formGroup]="form" (ngSubmit)="submit()">
         <div class="form-field">
           <label for="title">Title</label>
           <input id="title" type="text" [formControl]="form.controls.title" />
