@@ -113,5 +113,3 @@ def learner_token(client):
     return resp.json()["access_token"]
 
 
-def auth(token):
-    return {"Authorization": f"Bearer {token}"}
