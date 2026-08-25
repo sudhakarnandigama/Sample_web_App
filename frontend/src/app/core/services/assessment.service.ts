@@ -31,6 +31,17 @@ export interface LastResult {
   courseId: number;
 }
 
+export interface Attempt {
+  id: number;
+  assessment_id: number;
+  learner_id: number;
+  course_id: number;
+  score: number;
+  result: string;
+  attempted_at: string;
+  learner_name?: string;
+}
+
 @Injectable({ providedIn: 'root' })
 export class AssessmentService {
   lastResult: LastResult | null = null;
@@ -39,6 +50,10 @@ export class AssessmentService {
 
   getAssessment(courseId: number): Observable<Assessment> {
     return this.http.get<Assessment>(`${environment.apiUrl}/assessments/${courseId}`);
+  }
+
+  listAttempts(): Observable<Attempt[]> {
+    return this.http.get<Attempt[]>(`${environment.apiUrl}/assessments/attempts`);
   }
 
   submit(assessmentId: number, answers: Record<number, string>): Observable<SubmitResult> {
