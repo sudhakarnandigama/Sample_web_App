@@ -11,6 +11,7 @@ import { LearnerFormComponent } from './features/learners/learner-form.component
 import { AssignmentsComponent } from './features/assignments/assignments.component';
 import { AssessmentComponent } from './features/assessments/assessment.component';
 import { AssessmentResultComponent } from './features/assessments/assessment-result.component';
+import { CertificatesComponent } from './features/certificates/certificates.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -25,6 +26,7 @@ export const routes: Routes = [
   { path: 'assignments', component: AssignmentsComponent, canActivate: [authGuard, roleGuard(['ADMIN'])] },
   { path: 'assessment/result', component: AssessmentResultComponent, canActivate: [authGuard] },
   { path: 'assessment/:courseId', component: AssessmentComponent, canActivate: [authGuard] },
+  { path: 'certificates', component: CertificatesComponent, canActivate: [authGuard] },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: '**', redirectTo: '/dashboard' },
 ];
